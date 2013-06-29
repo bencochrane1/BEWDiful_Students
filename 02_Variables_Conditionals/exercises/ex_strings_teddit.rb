@@ -20,3 +20,23 @@
 # 	User enters: ecological
 # 	New story added! Bear feels remorse for stealing candy from baby, Category: Ecological, Current Upvotes: 1
 
+def get_chomp
+	gets.chomp
+end
+
+
+
+puts "Welcome to Teddit.\nPlease enter a news story:"
+
+news = get_chomp
+
+puts "User enters: #{news}"
+
+puts "Please give it a category:"
+
+category = get_chomp
+
+puts "User enters: #{category}"
+
+puts "New story added! #{news}, Category: #{category}, Current Upvotes: 1"
+
