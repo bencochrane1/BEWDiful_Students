@@ -15,3 +15,12 @@
 # Once the user is finished with entering their stories, use .each to print each story in the stories array. 
 #
 #
+
+
+stories = []
+
+story = {}
+
+
+
+
