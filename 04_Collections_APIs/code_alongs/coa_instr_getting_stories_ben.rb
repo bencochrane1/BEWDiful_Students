@@ -18,7 +18,7 @@ def parse_feed(url)
 	JSON.parse get_feed(url)
 end
 
-def normalize_reddit_feed(response)
+def normalize_reddit_feed()
 	response = parse_feed "http://www.reddit.com/.json"
 	response["data"]["children"].map do |story|
 		{
@@ -31,30 +31,30 @@ def normalize_reddit_feed(response)
 end
 
 
-# def normalise_mashable_feed(response)
-# 	response = parse_feed "http://mashable.com/stories.json"
-# 	response["new"].map do |story|
-# 		{
-# 			:source => "Mashable",
-# 			:title => story["title"],
-# 			:category => story["channel"],
-# 			:votes => story["shares"]["twitter"]
-# 		}
-# 	end
-# end		
+def normalise_mashable_feed()
+	response = parse_feed "http://mashable.com/stories.json"
+	response["new"].map do |story|
+		{
+			:source => "Mashable",
+			:title => story["title"],
+			:category => story["channel"],
+			:votes => story["shares"]["twitter"]
+		}
+	end
+end		
 
 
-# def normalise_digg_feed(response)
-# 	response = parse_feed "http://digg.com/api/news/popular.json"
-# 	response["data"]["feed"].map do |story|
-# 		{
-# 			:source => "Digg",
-# 			:title => story["content"]["title"],
-# 			:category => story["content"]["tags"].first["display"],
-# 			:votes => story["digg_score"]
-# 		}
-# 	end
-# end	
+def normalise_digg_feed()
+	response = parse_feed "http://digg.com/api/news/popular.json"
+	response["data"]["feed"].map do |story|
+		{
+			:source => "Digg",
+			:title => story["content"]["title"],
+			:category => story["content"]["tags"].first["display"],
+			:votes => story["digg_score"]
+		}
+	end
+end	
 
 def print_stories(stories)
 	stories.each do |story|
@@ -71,8 +71,8 @@ def print_story(story)
 end
 
 print_stories normalize_reddit_feed
-# print_stories normalise_digg_feed
-# print_stories normalise_mashable_feed
+print_stories normalise_digg_feed
+print_stories normalise_mashable_feed
 
 
 
