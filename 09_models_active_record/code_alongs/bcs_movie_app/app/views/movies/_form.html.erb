@@ -1,0 +1,36 @@
+<% if @movie.errors.any? %>
+
+<div class='errors'>
+	<p>Woops, Houston, we have a problem. Let's see what went wrong:</p>
+	<ul>
+		<% @movie.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>	
+</div>
+
+<% end %>
+
+<%= form_for @movie do |f| %>
+
+<div class="large-4 columns">
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div>
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	</div>
+
+	<div>
+		<%= f.label :year_released %>
+		<%= f.text_field :year_released %>
+	</div>
+
+<%= f.submit %> or <%= link_to 'Cancel', movies_path %>
+
+</div>
+<% end %>
+

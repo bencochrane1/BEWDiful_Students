@@ -1,7 +1,15 @@
 BcsMovieApp::Application.routes.draw do
 
-  root 'welcome#index'
+  root 'movies#index'
 
+  resources :movies
+
+  post '/movies/search' => 'movies#search', :as => :search
+
+  # get '/movies' => 'movies#index'
+
+  # get '/movies/:id' => 'movies#show', as: :movie
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
