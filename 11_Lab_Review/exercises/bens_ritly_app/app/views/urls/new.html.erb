@@ -1,0 +1,26 @@
+<h1>Ritly - where you can shorten your URL in a jiffy.</h1>
+
+
+
+<%= form_for @url do |f| %>
+
+	<div>
+		<%= f.label :link %>
+		<%= f.text_field :link %>
+	</div>
+
+	<%= f.submit %>
+
+
+<% end %>
+
+
+<p>Search for a Short URL:</p>	
+
+<%= form_tag search_path do %>
+
+	<%= text_field_tag 'search' %>
+	<%= submit_tag 'Search', class: "button", style: "width:30%" %>
+
+<% end %>
+

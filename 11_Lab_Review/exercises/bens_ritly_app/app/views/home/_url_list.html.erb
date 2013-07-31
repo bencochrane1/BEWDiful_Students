@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th width="150">Link</th>
+      <th width="150">Hash Code</th>
+      <th width="150"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @urls.each do |url| %>
+	    <tr>
+	      <td><%= link_to url.link, url_path(url.id) %></td>
+	      <td><%= link_to url.hash_code, url_path(url.id) %></td>
+	      <td><%= link_to 'Edit', edit_url_path(url) %></td>
+	    </tr>
+    <% end %>
+  </tbody>
+</table>

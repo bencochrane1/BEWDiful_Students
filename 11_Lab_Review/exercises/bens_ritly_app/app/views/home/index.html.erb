@@ -1,0 +1,15 @@
+<h1>Ritly - where you can shorten your URL in a jiffy.</h1>
+
+
+
+<%= form_for @url do |f| %>
+
+	<div>
+		<%= f.label :link %>
+		<%= f.text_field :link %>
+	</div>
+
+<%= f.submit %> or <%= link_to 'Cancel', url_path %>
+
+
+<% end %>
